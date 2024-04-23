@@ -48,6 +48,16 @@
             >;
         };
 
+        layer_Lower {
+            bindings = <
+ &kp F12        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &trans                                                  &trans        &kp F6         &kp F7         &kp F8            &kp F9       &kp F10    &kp F11
+  &trans      &kp EXCL        &kp AT     &kp POUND    &kp DOLLAR   &kp PERCENT            &trans                                                  &trans     &kp CARET  &kp AMPERSAND       &kp STAR          &kp LPAR      &kp RPAR     &trans
+  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5            &trans  &trans  &trans                  &trans  &trans  &trans  &kp NUMBER_6   &kp NUMBER_7   &kp NUMBER_8      &kp NUMBER_9  &kp NUMBER_0     &trans
+  &trans       &kp ESC      &kp PLUS     &kp MINUS     &kp EQUAL     &kp UNDER                            &trans                  &trans                      &kp BSLH       &kp LBKT  &kp LESS_THAN  &kp GREATER_THAN  &kp QUESTION  &kp TILDE
+  &trans        &trans        &trans        &trans        &trans                          &trans  &trans  &trans                  &trans  &trans  &trans                       &trans         &trans            &trans        &trans     &trans
+            >;
+        };
+
         layer_keypad {
             bindings = <
  &kp EQUAL     &kp N1    &kp N2    &kp N3     &kp N4  &kp N5              &trans                                                                 &mo 3  &kp N6  &kp KP_NUM  &kp KP_EQUAL  &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp MINUS
@@ -77,16 +87,5 @@
   &none         &none         &none         &none         &none                                &none   &none   &none                       &none  &bl BL_TOG         &rgb_ug RGB_TOG          &bl BL_INC  &bl BL_DEC   &none   &none   &none
             >;
         };
-
-        layer_Lower {
-            bindings = <
- &kp F12        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &trans                                                  &trans        &kp F6         &kp F7         &kp F8            &kp F9       &kp F10    &kp F11
-  &trans      &kp EXCL        &kp AT     &kp POUND    &kp DOLLAR   &kp PERCENT            &trans                                                  &trans     &kp CARET  &kp AMPERSAND       &kp STAR          &kp LPAR      &kp RPAR     &trans
-  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5            &trans  &trans  &trans                  &trans  &trans  &trans  &kp NUMBER_6   &kp NUMBER_7   &kp NUMBER_8      &kp NUMBER_9  &kp NUMBER_0     &trans
-  &trans       &kp ESC      &kp PLUS     &kp MINUS     &kp EQUAL     &kp UNDER                            &trans                  &trans                      &kp BSLH       &kp LBKT  &kp LESS_THAN  &kp GREATER_THAN  &kp QUESTION  &kp TILDE
-  &trans        &trans        &trans        &trans        &trans                          &trans  &trans  &trans                  &trans  &trans  &trans                       &trans         &trans            &trans        &trans     &trans
-            >;
-        };
-
     };
 };
