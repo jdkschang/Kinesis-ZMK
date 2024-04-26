@@ -25,7 +25,7 @@
             "&trans", "&trans", "&trans", "&trans", "&trans", "&trans",                 "&trans",                                                                       "&trans",   "&trans",   "&trans", "&trans",    "&trans", "&trans",         "&bl",
             "&trans", "&trans", "&trans", "&trans", "&trans", "&trans",                 "&trans",   "&bl BL_INC", "&bl BL_DEC",                     "&trans", "&trans", "&trans", "&kp LEFT", "&kp DOWN", "&kp UP", "&kp RIGHT", "&trans",      "&trans",
        "&bootloader", "&trans", "&trans", "&trans", "&trans", "&trans",                                               "&trans",                     "&trans",                       "&trans",   "&trans", "&trans",    "&trans", "&trans", "&bootloader",
-        "&macro_ver", "&trans", "&trans", "&trans", "&trans",                     "&out OUT_USB", "&out OUT_BLE",     "&trans",                     "&trans", "&trans", "&trans",               "&trans", "&trans",    "&trans", "&trans",      "&trans"
+            "&trans", "&trans", "&trans", "&trans", "&trans",                     "&out OUT_USB", "&out OUT_BLE",     "&trans",                     "&trans", "&trans", "&trans",               "&trans", "&trans",    "&trans", "&trans",      "&trans"
     ]
   ]
 }
