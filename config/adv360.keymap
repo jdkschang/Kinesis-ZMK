@@ -8,9 +8,9 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
-    behaviors {
-      #include "macros.dtsi"
-      #include "version.dtsi"
+  behaviors {
+    #include "macros.dtsi"
+    #include "version.dtsi"
 
     hm: homerow_mods {
         compatible = "zmk,behavior-hold-tap";
