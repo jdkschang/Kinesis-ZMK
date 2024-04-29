@@ -23,12 +23,20 @@
     #include "macros.dtsi"
     #include "version.dtsi"
 
-    hm: homerow_mods {
+    bhm: homerow_mods {
         compatible = "zmk,behavior-hold-tap";
         label = "HOMEROW_MODS";
         #binding-cells = <2>;
         tapping-term-ms = <200>;
-        quick_tap_ms = <175>;
+        flavor = "tap-preferred";
+        bindings = <&kp>, <&kp>;
+    };
+
+    shm: shift_hr_mod {
+        compatible = "zmk,behavior-hold-tap";
+        label = "SHIFT_HOMEROW_MODS";
+        #binding-cells = <2>;
+        tapping-term-ms = <180>;
         flavor = "tap-preferred";
         bindings = <&kp>, <&kp>;
     };
@@ -42,7 +50,7 @@
             bindings = <
        &kp EQUAL      &kp N1    &kp N2    &kp N3     &kp N4  &kp N5            &kp C_VOL_UP                                                                &rgb_ug RGB_TOG  &kp N6    &kp N7     &kp N8    &kp N9    &kp N0        &kp MINUS
          &kp TAB       &kp Q     &kp W     &kp E      &kp R   &kp T            &kp C_VOL_DN                                                                     &bl BL_TOG   &kp Y     &kp U      &kp I     &kp O     &kp P         &kp PIPE
-   &mt LCTRL ESC  &hm LGUI A  &hm LCTRL S  &hm LALT D  &hm LSHIFT F  &kp G              &kp C_MUTE       &kp LGUI  &kp LALT                   &kp RALT  &kp RGUI     &bt BT_SEL 0   &kp H     &hm RSHIFT J   &hm LALT K  &hm RCTRL L  &hm RGUI SEMI        &kp EQUAL
+   &mt LCTRL ESC  &bhm LGUI A  &bhm LCTRL S  &bhm LALT D  &shm LSHIFT F  &kp G              &kp C_MUTE       &kp LGUI  &kp LALT                   &kp RALT  &kp RGUI     &bt BT_SEL 0   &kp H     &shm RSHIFT J   &bhm LALT K  &bhm RCTRL L  &bhm RGUI SEMI        &kp EQUAL
  &mt LSHFT MINUS       &kp Z     &kp X     &kp C      &kp V   &kp B                                         &kp HOME                  &kp PG_UP                              &kp N     &kp M  &kp COMMA   &kp DOT  &kp FSLH  &mt RSHFT GRAVE
       &lt 2 PLUS   &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT                     &lt 1 SPACE  &kp BACKSPACE   &kp TAB                  &kp GRAVE   &kp SQT      &lt 2 ENTER          &kp LBKT   &kp RBKT  &kp LBRC  &kp RBRC   &kp UNDERSCORE
             >;
