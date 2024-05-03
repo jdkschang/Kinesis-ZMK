@@ -28,8 +28,8 @@
         label = "HOMEROW_MODS";
         #binding-cells = <2>;
         flavor = "tap-preferred";
-        tapping-term-ms = <200>;
-        require-prior-idle-ms = <125>;
+        tapping-term-ms = <280>;
+        quick-tap-ms = <0>;
         bindings = <&kp>, <&kp>;
     };
 
@@ -38,8 +38,8 @@
         label = "SHIFT_HOMEROW_MODS";
         #binding-cells = <2>;
         flavor = "tap-preferred";
-        tapping-term-ms = <200>;
-        require-prior-idle-ms = <125>;
+        tapping-term-ms = <180>;
+        quick-tap-ms = <0>;
         bindings = <&kp>, <&kp>;
     };
   };
