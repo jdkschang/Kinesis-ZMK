@@ -64,7 +64,7 @@
   &trans      &kp EXCL        &kp AT     &kp POUND    &kp DOLLAR   &kp PERCENT            &trans                                                  &trans     &kp CARET  &kp AMPERSAND       &kp STAR          &kp LPAR      &kp RPAR     &trans
   &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5            &trans  &trans  &trans                  &trans  &trans  &trans  &kp NUMBER_6   &kp NUMBER_7   &kp NUMBER_8      &kp NUMBER_9  &kp NUMBER_0     &trans
   &trans       &kp ESC      &kp PLUS     &kp MINUS     &kp EQUAL     &kp UNDER                            &trans                  &trans                      &kp BSLH       &kp LBKT  &kp LESS_THAN  &kp GREATER_THAN  &kp QUESTION  &kp TILDE
-  &trans        &trans        &trans        &trans        &trans                          &trans  &trans  &trans                  &trans  &trans  &trans                       &trans         &trans            &kp DOT        &trans     &trans
+  &trans        &trans        &trans        &kp COLON        &kp PERIOD                          &trans  &trans  &trans                  &trans  &trans  &trans                       &trans         &trans            &trans        &trans     &trans
             >;
         };
 
