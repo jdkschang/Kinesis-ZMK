@@ -1,80 +1,119 @@
-
-/*
- * Copyright (c) 2020 The ZMK Contributors
- *
- * SPDX-License-Identifier: MIT
- */
-
-
-/* THIS FILE WAS GENERATED!
- *
- * This file was generated automatically. You may or may not want to
- * edit it directly.
- */
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define HRML(k1,k2,k3,k4) &bhm LGUI k1  &bhm LCTRL k2  &bhm LALT k3  &shm LSHFT k4
+#define HRMR(k2,k3,k4,k5) &shm RSHFT k2  &bhm RALT k3  &bhm RCTRL k4  &bhm RGUI k5
+
+#define BAS 0
+#define LEF 1
+#define RIG 2
+#define SYS 3
+
+#define LC_ESC mt LCTRL ESC
+#define LS_MIN mt LSHFT MINUS
+
+#define RGBTGL rgb_ug RGB_TOG
+#define OUT_TGL out OUT_TOG
+#define OUT_USB out OUT_USB
+#define OUT_BLE out OUT_BLE
+
+// bluetooth
+#define B0    BT_SEL 0
+#define B1    BT_SEL 1
+#define B2    BT_SEL 2
+#define B3    BT_SEL 3
+#define B4    BT_SEL 4
+
+// media
+#define VOL_DN    C_VOL_DN
+#define VOL_UP    C_VOL_UP
+#define MUTE      C_MUTE
+
 / {
-  behaviors {
-    #include "macros.dtsi"
-    #include "version.dtsi"
+    behaviors {
+        #include "macros.dtsi"
+        #include "version.dtsi"
 
-    bhm: homerow_mods {
-        compatible = "zmk,behavior-hold-tap";
-        label = "HOMEROW_MODS";
-        #binding-cells = <2>;
-        flavor = "tap-preferred";
-        tapping-term-ms = <280>;
-        quick-tap-ms = <0>;
-        bindings = <&kp>, <&kp>;
+        bhm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <280>;
+            quick-tap-ms = <0>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        shm: shift_hr_mod {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SHIFT_HOMEROW_MODS";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <0>;
+            bindings = <&kp>, <&kp>;
+        };
     };
 
-    shm: shift_hr_mod {
-        compatible = "zmk,behavior-hold-tap";
-        label = "SHIFT_HOMEROW_MODS";
-        #binding-cells = <2>;
-        flavor = "tap-preferred";
-        tapping-term-ms = <180>;
-        quick-tap-ms = <0>;
-        bindings = <&kp>, <&kp>;
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <RIG LEF>;
+            then-layer = <SYS>;
+        };
     };
-  };
 
     keymap {
         compatible = "zmk,keymap";
 
-
         default_layer {
+            label = "BAS";
             bindings = <
-       &kp EQUAL      &kp N1    &kp N2    &kp N3     &kp N4  &kp N5            &kp C_MUTE                                                                &rgb_ug RGB_TOG  &kp N6    &kp N7     &kp N8    &kp N9    &kp N0        &kp MINUS
-         &kp PLUS       &kp Q     &kp W     &kp E      &kp R   &kp T            &kp C_VOL_UP                                                                     &bl BL_TOG   &kp Y     &kp U      &kp I     &kp O     &kp P         &kp PIPE
-   &mt LCTRL ESC  &bhm LGUI A  &bhm LCTRL S  &bhm LALT D  &shm LSHIFT F  &kp G              &kp C_VOL_DN       &kp LSHIFT  &kp LGUI                   &kp RALT  &kp LCTRL     &bt BT_SEL 0   &kp H     &shm RSHIFT J   &bhm LALT K  &bhm RCTRL L  &bhm RGUI SEMI        &kp EQUAL
- &mt LSHFT MINUS       &kp Z     &kp X     &kp C      &kp V   &kp B                                         &kp HOME                  &kp PG_UP                              &kp N     &kp M  &kp COMMA   &kp DOT  &kp FSLH  &mt RSHFT GRAVE
-      &lt 2 PLUS   &kp GRAVE  &kp CAPS  &kp LEFT  &kp RIGHT                     &lt 1 SPACE  &kp BACKSPACE   &kp TAB                  &kp GRAVE   &kp SQT      &lt 2 ENTER          &kp LBKT   &kp RBKT  &kp LBRC  &kp RBRC   &kp UNDERSCORE
+// ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
+    &kp EQUAL   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp MUTE                                                         &RGBTGL     &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS
+    &kp PLUS    &kp Q       &kp W       &kp E       &kp R       &kp T       &kp VOL_UP                                                       &bl BL_TOG  &kp Y       &kp U       &kp I       &kp O       &kp P       &kp PIPE
+    &LC_ESC     HRML(A,         S,          D,          F)      &kp G       &kp VOL_DN  &kp LSHIFT  &kp LGUI         &kp RALT    &kp LCTRL   &bt B0      &kp H      HRMR(J,          K,          L,          SEMI)   &kp EQUAL
+    &LS_MIN     &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp HOME         &kp PG_UP                           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp GRAVE
+    &lt 3 PLUS  &kp GRAVE   &kp CAPS    &kp LEFT    &kp RIGHT               &lt 1 SPACE &kp BSPC    &kp TAB          &kp GRAVE   &kp SQT     &lt 2 ENTER             &kp LBKT    &kp RBKT    &kp LBRC    &kp RBRC    &kp UNDER
             >;
         };
 
-        layer_Lower {
+        left_layer {
+            label = "LEF";
             bindings = <
- &kp F12        &kp F1        &kp F2        &kp F3        &kp F4        &kp F5            &trans                                                  &trans        &kp F6         &kp F7         &kp F8            &kp F9       &kp F10    &kp F11
-  &trans      &kp EXCL        &kp AT     &kp POUND    &kp DOLLAR   &kp PERCENT            &trans                                                  &trans     &kp CARET  &kp AMPERSAND       &kp STAR          &kp LPAR      &kp RPAR     &trans
-  &trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5            &trans  &trans  &trans                  &trans  &trans  &trans  &kp NUMBER_6   &kp NUMBER_7   &kp NUMBER_8      &kp NUMBER_9  &kp NUMBER_0     &trans
-  &trans       &kp ESC      &kp PLUS     &kp MINUS     &kp EQUAL     &kp UNDER                            &trans                  &trans                      &kp BSLH       &kp LBKT  &kp LESS_THAN  &kp GREATER_THAN  &kp QUESTION  &kp TILDE
-  &trans        &trans        &trans        &kp COLON        &kp PERIOD                          &trans  &trans  &trans                  &trans  &trans  &trans                       &trans         &trans            &trans        &trans     &trans
+// ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
+    &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &trans                                                           &trans      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
+    &trans      &kp EXCL    &kp AT      &kp POUND   &kp DOLLAR  &kp PERCENT &trans                                                           &trans      &kp CARET   &kp AMPS    &kp STAR    &kp LPAR    &kp RPAR    &trans
+    &trans      &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &trans      &trans      &trans           &trans      &trans      &trans      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &trans
+    &trans      &kp ESC     &kp PLUS    &kp MINUS   &kp EQUAL   &kp UNDER                           &trans           &trans                              &kp BSLH    &kp LBKT    &kp LT      &kp GT      &kp QMARK   &kp TILDE
+    &trans      &trans      &trans      &kp COLON   &kp PERIOD              &trans      &trans      &trans           &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans
             >;
         };
 
-        layer_mod {
+        right_layer {
+            label = "RIG";
             bindings = <
-  &trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                 &trans                                                               &trans    &trans    &trans  &trans     &trans   &trans  &bt BT_CLR
- &kp F12  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5            &bootloader                                                          &bootloader    &kp F6    &kp F7  &kp F8     &kp F9  &kp F10     &kp F11
-  &trans  &trans  &trans  &trans  &trans  &trans                 &trans  &bl BL_INC  &bl BL_DEC                  &bt BT_CLR  &trans       &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT   &trans      &trans
-  &trans  &trans  &trans  &trans  &trans  &trans                                         &trans                  &trans                         &trans    &trans  &trans     &trans   &trans      &trans
-  &trans  &trans  &trans  &trans  &trans                         &trans      &trans      &trans                  &trans  &trans       &trans              &trans  &trans     &trans   &trans      &trans
+// ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                                           &trans      &trans      &trans      &trans      &trans      &trans      &trans
+    &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &trans                                                           &trans      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans           &trans      &trans      &trans      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &trans
+    &trans      &trans      &trans      &trans      &trans      &trans                              &trans           &trans                              &trans      &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &trans      &trans      &trans                  &trans      &trans      &trans           &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans
+            >;
+        };
+
+        sys_layer {
+            label = "SYS";
+            bindings = <
+// ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                                           &trans      &trans      &trans      &trans      &trans      &trans      &bt BT_CLR
+    &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &bootloader                                                      &bootloader &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
+    &trans      &bt B0      &bt B1      &bt B2      &bt B3      &bt B4      &bt BT_CLR  &bl BL_INC  &bl BL_DEC       &OUT_USB    &OUT_BLE    &OUT_TGL    &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &trans
+    &trans      &trans      &trans      &trans      &trans      &trans                              &trans           &trans                              &trans      &trans      &trans      &trans      &trans      &trans
+    &trans      &trans      &trans      &trans      &trans                  &trans      &trans      &trans           &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans
             >;
         };
 
