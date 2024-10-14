@@ -111,7 +111,7 @@
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
     &trans      &trans      &trans      &trans      &trans      &trans      &trans                                                           &trans      &trans      &trans      &trans      &trans      &trans      &bt BT_CLR
     &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &bootloader                                                      &bootloader &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
-    &trans      &bt B0      &bt B1      &bt B2      &bt B3      &bt B4      &bt BT_CLR  &bl BL_INC  &bl BL_DEC       &OUT_USB    &OUT_BLE    &OUT_TGL    &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &trans
+    &trans      &bt B0      &bt B1      &bt B2      &bt B3      &bt B4      &trans      &bl BL_INC  &bl BL_DEC       &OUT_USB    &OUT_BLE    &OUT_TGL    &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &trans
     &trans      &trans      &trans      &trans      &trans      &trans                              &trans           &trans                              &trans      &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans                  &trans      &trans      &trans           &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans
             >;
