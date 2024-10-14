@@ -13,10 +13,14 @@
 #define RIG 2
 #define SYS 3
 
+// abbreviate
 #define LC_ESC mt LCTRL ESC
 #define LS_MIN mt LSHFT MINUS
 
-#define RGBTGL rgb_ug RGB_TOG
+// rgb
+#define R_TGL rgb_ug RGB_TOG
+
+// outputs
 #define O_USB out OUT_USB
 #define O_TGL out OUT_TOG
 #define O_BLE out OUT_BLE
@@ -74,10 +78,10 @@
             label = "BAS";
             bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
-    &kp EQUAL   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp MUTE                                                         &RGBTGL     &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS
+    &kp EQUAL   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp MUTE                                                         &R_TGL     &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS
     &kp PLUS    &kp Q       &kp W       &kp E       &kp R       &kp T       &kp VOL_UP                                                       &bl BL_TOG  &kp Y       &kp U       &kp I       &kp O       &kp P       &kp PIPE
-    &LC_ESC     HRML(A,         S,          D,          F)      &kp G       &kp VOL_DN  &kp LSHIFT  &kp LGUI         &kp RALT    &kp LCTRL   &O_TGL      &kp H      HRMR(J,          K,          L,          SEMI)   &kp EQUAL
-    &LS_MIN     &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp HOME         &kp PG_UP                           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp GRAVE
+    &LC_ESC     HRML(A,         S,          D,          F)      &kp G       &kp VOL_DN  &kp LSHFT   &kp LALT         &kp RALT    &kp RSHFT   &O_TGL      &kp H      HRMR(J,          K,          L,          SEMI)   &kp EQUAL
+    &LS_MIN     &kp Z       &kp X       &kp C       &kp V       &kp B                               &kp LGUI         &kp RGUI                           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp GRAVE
     &lt 3 PLUS  &kp GRAVE   &kp CAPS    &kp LEFT    &kp RIGHT               &lt 1 SPACE &kp BSPC    &kp TAB          &kp GRAVE   &kp SQT     &lt 2 ENTER             &kp LBKT    &kp RBKT    &kp LBRC    &kp RBRC    &kp UNDER
             >;
         };
@@ -89,8 +93,8 @@
     &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &trans                                                           &trans      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
     &trans      &kp EXCL    &kp AT      &kp POUND   &kp DOLLAR  &kp PERCENT &trans                                                           &trans      &kp CARET   &kp AMPS    &kp STAR    &kp LPAR    &kp RPAR    &trans
     &trans      &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &trans      &trans      &trans           &trans      &trans      &trans      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &trans
-    &trans      &kp ESC     &kp PLUS    &kp MINUS   &kp EQUAL   &kp UNDER                           &trans           &trans                              &kp BSLH    &kp LBKT    &kp LT      &kp GT      &kp QMARK   &kp TILDE
-    &trans      &trans      &trans      &kp COLON   &kp PERIOD              &trans      &trans      &trans           &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans
+    &trans      &kp MINUS   &kp PLUS    &kp PERIOD  &kp COLON   &kp UNDER                           &trans           &trans                              &kp BSLH    &kp LBKT    &kp LT      &kp GT      &kp QMARK   &kp TILDE
+    &trans      &trans      &trans      &trans      &trans                  &trans      &trans      &trans           &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans
             >;
         };
 
@@ -98,8 +102,8 @@
             label = "RIG";
             bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
-    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                                           &trans      &trans      &trans      &trans      &trans      &trans      &trans
     &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &trans                                                           &trans      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                                           &trans      &trans      &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans           &trans      &trans      &trans      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &trans
     &trans      &trans      &trans      &trans      &trans      &trans                              &trans           &trans                              &trans      &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans                  &trans      &trans      &trans           &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans
@@ -110,9 +114,9 @@
             label = "SYS";
             bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
-    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                                           &bl BL_TOG  &trans      &trans      &trans      &trans      &trans      &bt BT_CLR
+    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                                           &trans      &trans      &trans      &trans      &trans      &trans      &bt BT_CLR
     &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &bootloader                                                      &bootloader &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
-    &trans      &bt B0      &bt B1      &bt B2      &bt B3      &bt B4      &trans      &bl BL_INC  &bl BL_DEC       &O_USB      &O_BLE      &O_TGL      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &trans
+    &trans      &bt B0      &bt B1      &bt B2      &bt B3      &bt B4      &trans      &bl BL_INC  &bl BL_DEC       &O_USB      &O_BLE      &O_TGL      &trans      &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans      &trans                              &trans           &trans                              &trans      &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans                  &trans      &trans      &trans           &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans
             >;
