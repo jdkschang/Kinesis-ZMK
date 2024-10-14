@@ -17,9 +17,9 @@
 #define LS_MIN mt LSHFT MINUS
 
 #define RGBTGL rgb_ug RGB_TOG
-#define OUT_TGL out OUT_TOG
-#define OUT_USB out OUT_USB
-#define OUT_BLE out OUT_BLE
+#define O_TGL out OUT_TOG
+#define O_USB out OUT_USB
+#define O_BLE out OUT_BLE
 
 // bluetooth
 #define B0    BT_SEL 0
@@ -112,7 +112,7 @@
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
     &trans      &trans      &trans      &trans      &trans      &trans      &trans                                                           &trans      &trans      &trans      &trans      &trans      &trans      &bt BT_CLR
     &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &bootloader                                                      &bootloader &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
-    &trans      &bt B0      &bt B1      &bt B2      &bt B3      &bt B4      &trans      &bl BL_INC  &bl BL_DEC       &OUT_USB    &OUT_BLE    &OUT_TGL    &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &trans
+    &trans      &bt B0      &bt B1      &bt B2      &bt B3      &bt B4      &trans      &bl BL_INC  &bl BL_DEC       &O_USB      &O_BLE      &O_TGL    &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &trans
     &trans      &trans      &trans      &trans      &trans      &trans                              &trans           &trans                              &trans      &trans      &trans      &trans      &trans      &trans
     &trans      &trans      &trans      &trans      &trans                  &trans      &trans      &trans           &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans
             >;
