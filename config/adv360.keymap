@@ -70,6 +70,28 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        #define COMBO(NAME, BINDINGS, KEYPOS, LAYERS) \
+        combo_##NAME { \
+            bindings = <BINDINGS>; \
+            key-positions = <KEYPOS>; \
+            layers = <LAYERS>; \
+        };
+
+        // Brackets
+        COMBO(left_bracket, &kp LBKT, 16 30, BAS LEF RIG)
+        COMBO(left_paren, &kp LPAR, 17 31, BAS LEF RIG)
+        COMBO(left_brace, &kp LBRC, 18 32, BAS LEF RIG)
+        COMBO(right_bracket, &kp RBKT, 23 41, BAS LEF RIG)
+        COMBO(right_paren, &kp RPAR, 24 42, BAS LEF RIG)
+        COMBO(right_brace, &kp RBRC, 25 43, BAS LEF RIG)
+
+        // Convenience
+        COMBO(enter, &kp ENTER, 41 42 43, BAS LEF RIG)     // jkl
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
