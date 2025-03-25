@@ -1,12 +1,13 @@
-#include <behaviors.dtsi>
-#include <dt-bindings/zmk/outputs.h>
-#include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/stp.h>
+#include <behaviors.dtsi>
 #include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/rgb.h>
 
 // layers
+
 #define BAS 0
 #define LEF 1
 #define RIG 2
@@ -39,9 +40,32 @@
 
     conditional_layers {
         compatible = "zmk,conditional-layers";
+
         tri_layer {
             if-layers = <RIG LEF>;
             then-layer = <SYS>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        LSHFT_QMARK {
+            bindings = <&kp QMARK>;
+            key-positions = <32 58>;
+            layers = <1 0 2>;
+        };
+
+        RSHFT_QMARK {
+            bindings = <&kp QMARK>;
+            key-positions = <58 41>;
+            layers = <1 0 2>;
+        };
+
+        LAYER_QMARK {
+            bindings = <&kp QMARK>;
+            key-positions = <58 65>;
+            layers = <1 0 2>;
         };
     };
 
@@ -51,48 +75,44 @@
         base_layer {
             display-name = "BASE";
             bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
-    &kp EQUAL   &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &kp C_MUTE                                                       &rgb_ug RGB_TOG &kp N6  &kp N7      &kp N8      &kp N9      &kp N0      &kp MINUS
-    &kp PLUS    &kp Q       &kp W       &kp E       &kp R       &kp T       &kp C_VOL_UP                                                     &bl BL_TOG  &kp Y       &kp U       &kp I       &kp O       &kp P       &kp PIPE
-    &mt LCTRL ESC &bhm LGUI A  &bhm LCTRL S  &bhm LALT D  &shm LSHIFT F &kp G &kp C_VOL_DN &kp LSHFT &kp LALT        &kp RALT    &kp RSHFT   &out OUT_TOG &kp H &shm RSHIFT J &bhm LALT K &bhm RCTRL L &bhm RGUI SEMI &kp EQUAL
-    &mt LSHFT MINUS &kp Z   &kp X       &kp C       &kp V       &kp B                               &kp LGUI         &kp RGUI                           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp GRAVE
-    &lt 3 PLUS  &kp GRAVE   &kp CAPS    &kp LEFT    &kp RIGHT               &lt 1 SPACE &kp BSPC    &kp TAB          &kp GRAVE   &kp SQT     &lt 2 ENTER             &kp LBKT    &kp RBKT    &kp LBRC    &kp RBRC    &kp UNDER
+&kp EQUAL        &kp N1       &kp N2        &kp N3       &kp N4         &kp N5  &kp C_MUTE                                                   &rgb_ug RGB_TOG  &kp N6  &kp N7         &kp N8       &kp N9        &kp N0          &kp MINUS
+&kp PLUS         &kp Q        &kp W         &kp E        &kp R          &kp T   &kp C_VOL_UP                                                 &bl BL_TOG       &kp Y   &kp U          &kp I        &kp O         &kp P           &kp PIPE
+&mt LCTRL ESC    &bhm LGUI A  &bhm LCTRL S  &bhm LALT D  &shm LSHIFT F  &kp G   &kp C_VOL_DN  &kp LSHFT  &kp LALT      &kp RALT   &kp RSHFT  &out OUT_TOG     &kp H   &shm RSHIFT J  &bhm LALT K  &bhm RCTRL L  &bhm RGUI SEMI  &kp EQUAL
+&mt LSHFT MINUS  &kp Z        &kp X         &kp C        &kp V          &kp B                            &kp LGUI      &kp RGUI                               &kp N   &kp M          &kp COMMA    &kp DOT       &kp FSLH        &kp GRAVE
+&lt 3 PLUS       &kp GRAVE    &kp CAPS      &kp LEFT     &kp RIGHT              &lt 1 SPACE   &kp BSPC   &kp TAB       &kp GRAVE  &kp SQT    &lt 2 ENTER              &kp LBKT       &kp RBKT     &kp LBRC      &kp RBRC        &kp UNDER
             >;
         };
 
         left_layer {
             display-name = "LEF";
             bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
-    &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &trans                                                           &trans      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
-    &trans      &kp EXCL    &kp AT      &kp POUND   &kp DOLLAR  &kp PERCENT &trans                                                           &trans      &kp CARET   &kp AMPS    &kp STAR    &kp LPAR    &kp RPAR    &trans
-    &trans      &kp N1      &kp N2      &kp N3      &kp N4      &kp N5      &trans      &trans      &trans           &trans      &trans      &trans      &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &trans
-    &trans      &kp MINUS   &kp PLUS    &kp PERIOD  &kp COLON   &kp UNDER                           &trans           &trans                              &kp BSLH    &kp LBKT    &kp LT      &kp GT      &kp QMARK   &kp TILDE
-    &trans      &trans      &trans      &trans      &trans                  &trans      &trans      &trans           &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans
+&kp F12  &kp F1     &kp F2    &kp F3      &kp F4      &kp F5       &trans                                      &trans  &kp F6     &kp F7    &kp F8    &kp F9    &kp F10    &kp F11
+&trans   &kp EXCL   &kp AT    &kp POUND   &kp DOLLAR  &kp PERCENT  &trans                                      &trans  &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR   &trans
+&trans   &kp N1     &kp N2    &kp N3      &kp N4      &kp N5       &trans  &trans  &trans      &trans  &trans  &trans  &kp N6     &kp N7    &kp N8    &kp N9    &kp N0     &trans
+&trans   &kp MINUS  &kp PLUS  &kp PERIOD  &kp COLON   &kp UNDER                    &trans      &trans                  &kp BSLH   &kp LBKT  &kp LT    &kp GT    &kp QMARK  &kp TILDE
+&trans   &trans     &trans    &trans      &trans                   &trans  &trans  &trans      &trans  &trans  &trans             &trans    &trans    &trans    &trans     &trans
             >;
         };
 
         right_layer {
             display-name = "RIG";
             bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
-    &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &trans                                                           &trans      &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
-    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                                           &trans      &trans      &trans      &trans      &trans      &trans      &trans
-    &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans           &trans      &trans      &trans      &kp LEFT    &kp DOWN    &kp UP      &kp RIGHT   &trans      &trans
-    &trans      &trans      &trans      &trans      &trans      &trans                              &trans           &trans                              &trans      &trans      &trans      &trans      &trans      &trans
-    &trans      &trans      &trans      &trans      &trans                  &trans      &trans      &trans           &trans      &trans      &trans                  &trans      &trans      &trans      &trans      &trans
+&kp F12  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &trans                                      &trans  &kp F6    &kp F7    &kp F8  &kp F9     &kp F10  &kp F11
+&trans   &trans  &trans  &trans  &trans  &trans  &trans                                      &trans  &trans    &trans    &trans  &trans     &trans   &trans
+&trans   &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &trans   &trans
+&trans   &trans  &trans  &trans  &trans  &trans                  &trans      &trans                  &trans    &trans    &trans  &trans     &trans   &trans
+&trans   &trans  &trans  &trans  &trans          &trans  &trans  &trans      &trans  &trans  &trans            &trans    &trans  &trans     &trans   &trans
             >;
         };
 
         sys_layer {
             display-name = "SYS";
             bindings = <
-// ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷    ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷           ╷
-    &trans      &trans      &trans      &trans      &trans      &trans      &trans                                                           &trans      &trans      &trans      &trans      &trans      &trans      &bt BT_CLR
-    &kp F12     &kp F1      &kp F2      &kp F3      &kp F4      &kp F5      &bootloader                                                      &bootloader &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &kp F11
-    &trans  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &trans     &trans      &trans           &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans      &trans
-    &trans      &trans      &trans      &trans      &trans      &trans                              &out OUT_USB     &out OUT_USB                        &trans      &trans      &trans      &trans      &trans      &trans
-    &stp STP_BAT &trans     &trans      &trans      &trans                  &trans      &trans      &out OUT_BLE     &out OUT_BLE &trans     &trans                  &trans      &trans      &trans      &trans      &stp STP_BAT
+&trans        &trans        &trans        &trans        &trans        &trans        &trans                                                       &trans       &trans  &trans  &trans  &trans  &trans   &bt BT_CLR
+&kp F12       &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &bootloader                                                  &bootloader  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp F11
+&trans        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &trans       &trans  &trans            &trans        &trans  &trans       &trans  &trans  &trans  &trans  &trans   &trans
+&trans        &trans        &trans        &trans        &trans        &trans                             &out OUT_USB      &out OUT_USB                       &trans  &trans  &trans  &trans  &trans   &trans
+&stp STP_BAT  &trans        &trans        &trans        &trans                      &trans       &trans  &out OUT_BLE      &out OUT_BLE  &trans  &trans               &trans  &trans  &trans  &trans   &stp STP_BAT
             >;
         };
 
